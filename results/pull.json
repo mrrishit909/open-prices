@@ -1,0 +1,32 @@
+{
+  "pulled": "2026-10-04",
+  "files": {
+    "hicp_fr.json": {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx?geo=FR&coicop=CP00&coicop=CP01&unit=I15&sinceTimePeriod=2023-01&format=JSON",
+      "bytes": 5920,
+      "sha256": "c7ee305003035f9445859ffb3581325bd9dab5a8137e47e11700cc058e493e78",
+      "updated": "2026-02-06T23:00:00+0100"
+    },
+    "prices.parquet": {
+      "url": "https://huggingface.co/datasets/openfoodfacts/open-prices/resolve/main/prices.parquet",
+      "bytes": 33068990,
+      "sha256": "aa74ec91792392dc242096c909741cae15ee0119d7030c5ba0a0445286c35a3a",
+      "rows": 320399
+    },
+    "prices.csv.gz": {
+      "url": "derived from prices.parquet by pyarrow (selected columns, lossless)",
+      "bytes": 11461548,
+      "sha256": "d6ef6753688ed92644b0d6f9a9c509acdeca63b3c558cf1930e49917837fc913",
+      "rows": 320399
+    },
+    "off_products.csv.gz": {
+      "url": "https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz",
+      "bytes_streamed": 1275171186,
+      "sha256_of_stream": "f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176",
+      "rows_in_dump": 4535553,
+      "rows_kept": 116467,
+      "note": "filtered to the barcodes present in prices.csv.gz, leading zeros stripped for matching; the full file is not stored",
+      "stored_bytes": 4039387
+    }
+  }
+}
