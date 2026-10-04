@@ -198,7 +198,7 @@ def main():
     for k, v in raw["location_osm_tag_value"].replace("", "unknown").value_counts().head(3).items():
         conc.append((f"store_type_share_{k}", v / N))
     biggest = A.groupby("month").size().sort_values(ascending=False)
-    conc += [("busiest_month", biggest.index[0]), ("busiest_month_prices", int(biggest.iloc[0])), ("busiest_month_share_of_A", biggest.iloc[0] / len(A)), ("prices_2026_share_of_A", (A["date"] >= "2026-01-01").mean()),
+    conc += [("busiest_month", biggest.index[0]), ("busiest_month_prices", int(biggest.iloc[0])), ("busiest_month_top_contributor_share", A[A["month"] == biggest.index[0]].groupby("owner").size().max() / biggest.iloc[0]), ("busiest_month_share_of_A", biggest.iloc[0] / len(A)), ("prices_2026_share_of_A", (A["date"] >= "2026-01-01").mean()),
              ("share_FR_in_A", (A["cc"] == "FR").mean())]
     save("concentration", pd.DataFrame(conc, columns=["key", "value"]))
 
@@ -311,6 +311,7 @@ def main():
         return np.nan
     Iq = A[(A["cc"] == "FR") & (A["currency"] == "EUR") & (A["date"] >= "2024-01-01") & A["proof_type"].isin(SHELF) & (~A["disc"]) & (~A["far"])]
     daily = Iq.groupby(["product_code", "store", "date"], sort=False)["lp"].median().reset_index(); daily["day"] = (pd.to_datetime(daily["date"]) - pd.Timestamp("2000-01-01")).dt.days
+    daily = daily.sort_values(["product_code", "store", "day"], kind="stable").reset_index(drop=True)   # earlier dates first inside each (barcode, store)
     pairs = []
     for (pc, st), grp in daily.groupby(["product_code", "store"], sort=False):
         if len(grp) < 2: continue
