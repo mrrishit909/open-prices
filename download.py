@@ -2,8 +2,8 @@
 
     ~/tools/venv/bin/python download.py   -> data/prices.csv.gz  data/off_products.csv.gz  data/hicp_fr.json, results/pull.json
 
-Open Prices (Open Food Facts), daily bulk export of every price: https://huggingface.co/datasets/openfoodfacts/open-prices/resolve/main/prices.parquet (the official dump, linked from https://prices.openfoodfacts.org/ ;
-documented at https://huggingface.co/datasets/openfoodfacts/open-prices ; live API https://prices.openfoodfacts.org/api/v1/prices). Licence: Open Database Licence (ODbL 1.0): credit Open Prices / Open Food Facts contributors,
+Open Prices (Open Food Facts), daily bulk export of every price: https://huggingface.co/datasets/openfoodfacts/open-prices/resolve/main/prices.parquet (the official dump, published by the openfoodfacts organisation on Hugging Face and described at
+https://huggingface.co/datasets/openfoodfacts/open-prices ; live API https://prices.openfoodfacts.org/api/v1/prices). Licence: Open Database Licence (ODbL 1.0): credit Open Prices / Open Food Facts contributors,
 share alike for derived databases. Only this project's own aggregates (results/) are published here, never the raw rows. The parquet is converted to gzip CSV with pyarrow (lossless, selected columns) so check.py can read it in plain Python.
 Open Food Facts product table (ODbL, contents DbCL): https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz (1.3 GB, streamed and filtered to the barcodes that have a price; the 1.3 GB is never stored).
 Eurostat HICP (monthly index, 2015=100, France, all items CP00 and food CP01), table prc_hicp_midx, reuse permitted with source: https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_midx

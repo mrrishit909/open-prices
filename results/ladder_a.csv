@@ -1,0 +1,13 @@
+key,value
+median_spread_raw,0.12225363135029174
+median_spread_after_store,0.07564477111080109
+p90_spread_raw,0.4556962025316454
+p90_spread_after_store,0.25565997406411184
+units_in_largest_component,49350.0
+units_in_all_cells,49378.0
+cells,17474.0
+stores,839.0
+rms_within_cell,0.10745328328215452
+rms_after_store,0.0677798140477837
+share_removed_by_store,0.6021115194449802
+sd_store_effect,0.11927144467286982

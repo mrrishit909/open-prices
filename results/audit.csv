@@ -1,0 +1,14 @@
+step,rows,dropped,share_of_all
+every row in the dump,320399,0,1.0
+a barcode product (drop raw produce with no barcode),310245,10154,0.968308265631291
+price above zero,310234,11,0.968273933439243
+currency present,310063,171,0.9677402239083143
+date present,310048,15,0.9676934072827943
+date from 2018-01-01 to the pull date,309627,421,0.9663794206598647
+store has a country,308014,1613,0.9613450728622749
+currency is the country's own,307627,387,0.9601372039238575
+"one row per (barcode, store, date, price, currency)",291812,15815,0.9107768750838798
+tag or receipt proof (not loyalty export or shop import),257213,34599,0.8027896466593216
+not a promotion,230985,26228,0.7209292163833221
+not a far outlier,230921,64,0.7207294654477698
+"France, euro, 2025-01-01 on = study sample S",134406,96515,0.41949569130989794

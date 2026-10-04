@@ -1,0 +1,23 @@
+check,rows,share,denominator,note
+raw produce with no barcode (priced per kg or per unit),10154,0.031691734368709014,320399,
+price of zero or less,12,3.745330041604375e-05,320399,
+currency missing,171,0.0005337095309286234,320399,
+date missing,186,0.0005805261564486781,320399,
+no proof attached,129,0.00040262297947247025,320399,
+dated before 2018-01-01,423,0.001320228839665542,320399,
+dated after the pull date,0,0.0,320399,
+date more than 1 day after the row was entered,2,6.242216736007291e-06,320399,
+proof currency differs from price currency,2,6.536866291668437e-06,305957,denominator: rows with both currencies
+currency is not the store country's own,435,0.0013723436474685781,316976,denominator: rows in a country with a known currency
+"exact duplicates (same barcode, store, date, price, currency): surplus rows",15815,0.051409661700695976,307627,denominator: rows reaching the dedup step
+  of which entered twice from the same proof,3627,0.22933923490357255,15815,denominator: surplus rows
+"barcode length not 8, 12, 13 or 14",74,0.0002385211687537269,310245,denominator: barcode rows
+loyalty-card export (GDPR_REQUEST) or shop import (SHOP_IMPORT) proofs,36277,0.11322444826606824,320399,
+discounted but no regular price recorded,3146,0.10206995003568879,30822,denominator: discounted rows
+discounted but regular price not above the price,0,0.0,30822,denominator: discounted rows
+barcodes with >= 5 prices (the only ones whose prices can be checked),105035,0.3599406467177498,291812,denominator: cleaned rows A
+suspect prices (>= 2x or <= 1/2 of the barcode median),531,0.005055457704574665,105035,denominator: cleaned rows of barcodes with >= 5 prices
+"far outliers (>= 3x or <= 1/3 of the barcode median), dropped from the study",104,0.0009901461417622698,105035,denominator: cleaned rows of barcodes with >= 5 prices
+"  of which a decimal slip (ratio 10, 100, 1/10 or 1/100 within 3%)",2,0.019230769230769232,104,denominator: far outliers
+barcodes of A not found in the Open Food Facts dump,24083,0.1724945564978226,139616,denominator: distinct barcodes in A
+"barcodes found but pack size not parseable as g, kg, ml, cl, dl, l",47691,0.34158692413476965,139616,denominator: distinct barcodes in A (multipacks '6 x 33 cl' and counts '10 pcs' are not parsed)
